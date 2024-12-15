@@ -137,6 +137,7 @@ header {
     animation: fadeIn 0.5s ease;
 }
 
+
 /* Animasi Fade In */
 @keyframes fadeIn {
     from {
@@ -175,10 +176,28 @@ header {
     margin-top: 20px;
 }
 
+.dropdown-content .modal-konten button {
+  background-color: #3949ab;
+  color: #7f8ff5;
+  border: none;
+  padding: 10px 160px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
 .modal-konten button:hover {
     background-color: #6476e9;
     color: #fff;
     cursor: pointer;
+}
+
+.dropdown-content .modal-konten button:hover {
+  background-color: #6476e9;
+  color: #fff;
+  cursor: pointer;
 }
 
 .modal-konten .logo {
@@ -202,6 +221,7 @@ header {
 .close-btn:hover {
     color: black;
 }
+
 /* Main Konten */
   .widget {
     margin-bottom: 20px;

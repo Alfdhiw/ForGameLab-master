@@ -62,3 +62,38 @@ themeToggle.addEventListener('change', () => {
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 
+// Membuka Form Login
+const openModalBtn = document.getElementById("theme-masuk");
+const openModalBellBtn = document.getElementById("themebell-masuk");
+const openModalIkutiBtn = document.getElementById("ikuti-masuk");
+const openModalIkuti2Btn = document.getElementById("ikuti2-masuk");
+const modal = document.getElementById("loginModal"); 
+const closeBtn = document.querySelector(".close-btn");
+
+// Event listener untuk membuka modal saat tombol "Masuk" ditekan
+openModalBtn.addEventListener("click", function () {
+  modal.style.display = "block";
+});
+openModalBellBtn.addEventListener("click", function () {
+  modal.style.display = "block";
+});
+openModalIkutiBtn.addEventListener("click", function () {
+  modal.style.display = "block";
+});
+openModalIkuti2Btn.addEventListener("click", function () {
+  modal.style.display = "block";
+});
+
+// Event listener untuk menutup modal saat tombol "X" diklik
+closeBtn.addEventListener("click", function () {
+  modal.style.display = "none";
+});
+
+// Event listener untuk menutup modal saat area di luar modal diklik
+window.addEventListener("click", function (event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+
