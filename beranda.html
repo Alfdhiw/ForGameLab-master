@@ -17,8 +17,18 @@
     <div class="navbar-left">
       <div class="logo">ForGameLab</div>
       <div class="menu">
-        <a href="#" class="active">Beranda</a>
-        <a href="#">Kelompok</a>
+        <a class="active" href="#" aria-current="page"><b>Beranda</b></a>
+        <a class="dropdown dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false"><b>Kelompok</b></a>
+        <ul class="dropdown-menu"
+          style="margin-left: 380px; background-color: #1b1d2a; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);">
+          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-gun"></i> Action</a></li>
+          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-leaf"></i> Another action</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
       </div>
     </div>
 
@@ -146,14 +156,14 @@
           <b></b>Hanya butuh beberapa detik untuk log in dan buka bonus lapor
           kehadiran serta fitur game lainnya!
         </p>
-        <button class="login-btn">Login Akun</button>
+        <button class="login-btn" id="login-masuk">Login Akun</button>
       </div>
 
       <div class="post-options">
         <h3>Ayo segera posting!</h3>
-        <button>Konten</button>
-        <button>Gambar</button>
-        <button>Video</button>
+        <button id="konten-masuk">Konten</button>
+        <button id="gambar-masuk">Gambar</button>
+        <button id="video-masuk">Video</button>
       </div>
 
       <div class="topik-info">

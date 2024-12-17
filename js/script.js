@@ -67,21 +67,29 @@ const openModalBtn = document.getElementById("theme-masuk");
 const openModalBellBtn = document.getElementById("themebell-masuk");
 const openModalIkutiBtn = document.getElementById("ikuti-masuk");
 const openModalIkuti2Btn = document.getElementById("ikuti2-masuk");
+const openModalLoginBtn = document.getElementById("login-masuk");
+const openModalKontenBtn = document.getElementById("konten-masuk");
+const openModalGambarBtn = document.getElementById("gambar-masuk");
+const openModalVideoBtn = document.getElementById("video-masuk");
 const modal = document.getElementById("loginModal"); 
 const closeBtn = document.querySelector(".close-btn");
 
+const loginModal = [
+  openModalBtn, 
+  openModalBellBtn, 
+  openModalIkutiBtn, 
+  openModalIkuti2Btn, 
+  openModalLoginBtn,
+  openModalKontenBtn,
+  openModalGambarBtn,
+  openModalVideoBtn
+];
+
 // Event listener untuk membuka modal saat tombol "Masuk" ditekan
-openModalBtn.addEventListener("click", function () {
-  modal.style.display = "block";
-});
-openModalBellBtn.addEventListener("click", function () {
-  modal.style.display = "block";
-});
-openModalIkutiBtn.addEventListener("click", function () {
-  modal.style.display = "block";
-});
-openModalIkuti2Btn.addEventListener("click", function () {
-  modal.style.display = "block";
+loginModal.forEach(button => {
+  button.addEventListener("click", () => {
+    modal.style.display = "block";
+  });
 });
 
 // Event listener untuk menutup modal saat tombol "X" diklik
