@@ -103,5 +103,13 @@ window.addEventListener("click", function (event) {
     modal.style.display = "none";
   }
 });
-
+// Event untuk Mengubah class active pada navbar
+function setActive(event) {
+  // Hapus class 'active' dari semua elemen dengan class 'menu-link' atau 'dropdown-item'
+  document.querySelectorAll('.menu-link, .dropdown-item').forEach(item => {
+    item.classList.remove('active');
+  });
+  
+  event.currentTarget.classList.add('active');
+}
 

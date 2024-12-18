@@ -17,13 +17,15 @@
     <div class="navbar-left">
       <div class="logo">ForGameLab</div>
       <div class="menu">
-        <a class="active" href="#" aria-current="page"><b>Beranda</b></a>
-        <a class="dropdown dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false"><b>Kelompok</b></a>
+        <a class="menu-link active" href="#" aria-current="page" onclick="setActive(event)"><b>Beranda</b></a>
+        <a class="menu-link dropdown dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+          onclick="setActive(event)"><b>Kelompok</b></a>
         <ul class="dropdown-menu"
           style="margin-left: 380px; background-color: #1b1d2a; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);">
-          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-gun"></i> Action</a></li>
-          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-leaf"></i> Another action</a></li>
+          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-gun" onclick="setActive(event)"></i> Action</a>
+          </li>
+          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-leaf" onclick="setActive(event)"></i> Another
+              action</a></li>
           <li>
             <hr class="dropdown-divider">
           </li>
