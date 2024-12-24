@@ -1,3 +1,133 @@
+/* Root Variable untuk Background */
+:root {
+  --bg-image: url('../bahan/csgo.jpg');
+}
+
+.blue {
+  color: #4263eb;
+  font-weight: bold;
+}
+
+/* Body dengan Background Tetap */
+.body-action{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: 
+  linear-gradient(to top, rgb(12, 15, 30) 40%, rgba(0, 0, 0, 0.464) 100%),
+  url('../bahan/action_bf5.jpg'); /* Ganti URL dengan gambar Anda */
+  background-size: cover; /* Gambar memenuhi seluruh layar */
+  background-repeat: no-repeat;
+  background-position: center; /* Fokus pada tengah gambar */
+  background-attachment: fixed; /* Efek background tetap */
+  z-index: 1;
+}
+
+.body-cod{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: 
+  linear-gradient(to top, rgb(12, 15, 30) 40%, rgba(0, 0, 0, 0.464) 100%),
+  url('../bahan/cod.jpg'); /* Ganti URL dengan gambar Anda */
+  background-size: cover; /* Gambar memenuhi seluruh layar */
+  background-repeat: no-repeat;
+  background-position: top; /* Fokus pada tengah gambar */
+  background-attachment: fixed; /* Efek background tetap */
+  z-index: 1;
+
+}
+
+.body-apex{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: 
+  linear-gradient(to top, rgb(12, 15, 30) 40%, rgba(0, 0, 0, 0.464) 100%),
+  url('../bahan/apex.jpg'); /* Ganti URL dengan gambar Anda */
+  background-size: cover; /* Gambar memenuhi seluruh layar */
+  background-repeat: no-repeat;
+  background-position: bottom; /* Fokus pada tengah gambar */
+  background-attachment: fixed; /* Efek background tetap */
+  z-index: 1;
+
+}
+
+.body-csgo{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: 
+  linear-gradient(to top, rgb(12, 15, 30) 40%, rgba(0, 0, 0, 0.464) 100%),
+  url('../bahan/csgo.jpg'); /* Ganti URL dengan gambar Anda */
+  background-size: cover; /* Gambar memenuhi seluruh layar */
+  background-repeat: no-repeat;
+  background-position: center; /* Fokus pada tengah gambar */
+  background-attachment: fixed; /* Efek background tetap */
+  z-index: 1;
+
+}
+
+.body-genshin{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: 
+  linear-gradient(to top, rgb(12, 15, 30) 40%, rgba(0, 0, 0, 0.464) 100%),
+  url('../bahan/genshin_banner.webp'); /* Ganti URL dengan gambar Anda */
+  background-size: cover; /* Gambar memenuhi seluruh layar */
+  background-repeat: no-repeat;
+  background-position: center; /* Fokus pada tengah gambar */
+  background-attachment: fixed; /* Efek background tetap */
+  z-index: 1;
+
+}
+
+.body-star{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: 
+  linear-gradient(to top, rgb(12, 15, 30) 40%, rgba(0, 0, 0, 0.464) 100%),
+  url('../bahan/star_banner.webp'); /* Ganti URL dengan gambar Anda */
+  background-size: cover; /* Gambar memenuhi seluruh layar */
+  background-repeat: no-repeat;
+  background-position: center; /* Fokus pada tengah gambar */
+  background-attachment: fixed; /* Efek background tetap */
+  z-index: 1;
+
+}
+
+.body-zenless{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: 
+  linear-gradient(to top, rgb(12, 15, 30) 40%, rgba(0, 0, 0, 0.464) 100%),
+  url('../bahan/zenless_banner.webp'); /* Ganti URL dengan gambar Anda */
+  background-size: cover; /* Gambar memenuhi seluruh layar */
+  background-repeat: no-repeat;
+  background-position: center; /* Fokus pada tengah gambar */
+  background-attachment: fixed; /* Efek background tetap */
+  z-index: 1;
+
+}
+
+.body-honkai{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: 
+  linear-gradient(to top, rgb(12, 15, 30) 40%, rgba(0, 0, 0, 0.464) 100%),
+  url('../bahan/honkai_banner.webp'); /* Ganti URL dengan gambar Anda */
+  background-size: cover; /* Gambar memenuhi seluruh layar */
+  background-repeat: no-repeat;
+  background-position: center; /* Fokus pada tengah gambar */
+  background-attachment: fixed; /* Efek background tetap */
+  z-index: 1;
+
+}
+
 /* General Styles */
 header {
     background-color: #222;
@@ -102,7 +232,7 @@ header {
 /* Sidebar Main */
   .sidebar {
     width: 25%;
-    background-color: #0c0f1d;
+    background-color: transparent;
     padding: 15px;
     margin-left: 20px;
     margin-bottom: auto;
@@ -239,8 +369,72 @@ header {
   }
 
   .post-options h3, .topik-info h3 {
-    margin-left: 5px
+    margin-left: 5px;
+    font-size: medium;
   }
+
+  .post-options h5, .topik-info h5 {
+    margin-left: 5px;
+    font-size: 12px;
+    color: #878787;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+  }
+
+  /* Daftar Kode */
+.kode-list {
+  margin-top: 15px;
+}
+
+/* Item Kode */
+.kode-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0c0f1d;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Info Kode */
+.kode-item .info p {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.kode-item .info .reward {
+  color: #f6f474;
+  font-weight: bold;
+}
+
+.kode-item .info .bonus {
+  color: #6fa5f1;
+}
+
+/* Kode */
+.kode-item .info .kode {
+  font-size: 0.85rem;
+  color: #c1c1d1;
+}
+
+/* Tombol Tukar */
+.tukar-btn {
+  background-color: #1a224d;
+  color: #6b6b9f;
+  border: none;
+  border-radius: 15px;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tukar-btn:hover {
+  background-color: #4b579e;
+  color: #bac7fb;
+}
   
   .post-options button {
     background-color: #3949ab;
@@ -268,8 +462,15 @@ header {
 .post-container {
     width: 800px;
     background-color: #1b1d2a;
-    padding: 20px 35px;
+    padding: 50px 50px;
     margin: auto;
+}
+
+.container-detail {
+  width: auto;
+  background-color: #1b1d2a;
+  padding: 10px 10px;
+  margin: auto;
 }
 
 .topik-container {
@@ -283,6 +484,16 @@ header {
 
 .topik-container:hover {
     background-color: #676767;
+}
+
+.topik-action {
+  width: 260px;
+  height: 60px;
+  background-color: #0c0f1d;
+  border-radius: 10px;
+  padding: 5px 10px 5px 5px;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
 .post-header {
@@ -554,14 +765,291 @@ body.dark-mode {
   body.dark-mode #theme-setting:hover {
     background-color: #444;
   }
+
+/* Banner */
+.banner {
+  position: relative;
+    height: 100vh; /* Tinggi banner sesuai tinggi layar */
+    background-image: var(--bg-image);
+    background-size: cover; /* Gambar memenuhi area banner */
+    background-position: center; /* Fokus pada bagian tengah gambar */
+    background-attachment: fixed; /* Efek background tetap saat scroll */
+    transition: background-image 1s ease; /* Efek fade */
+    z-index: -1; /* Letakkan di belakang konten */
+}
+
+.banner-action {
+  position: relative;
+    height: 100vh; /* Tinggi banner sesuai tinggi layar */
+    background-image: var(--bg-image);
+    background-size: cover; /* Gambar memenuhi area banner */
+    background-position: center; /* Fokus pada bagian tengah gambar */
+    background-attachment: fixed; /* Efek background tetap saat scroll */
+    transition: background-image 1s ease; /* Efek fade */
+    z-index: 1; /* Letakkan di belakang konten */
+}
+
+.banner-overlay {
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay gelap untuk kontras dengan teks */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff; /* Warna teks */
+    padding: 20px;
+    z-index: 1; /* Di atas background */
+}
+
+.banner-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Efek bayangan teks */
+}
+
+.banner-overlay p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: left;
+  background-color: transparent;
+  padding: 10px 0;
+  margin-bottom: 200px;
+  gap: 10px; /* Jarak antar tab */
+  z-index: 1;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: transparent;
+  border-radius: 5px;
+  color: #747272;
+  margin-left: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tab:hover {
+  background-color: transparent;
+  color: #fff;
+}
+
+.tab.active .icon img{
+  background-color: transparent;
+  color: #fff;
+  filter: brightness(100%);
+}
+
+.tab.active{
+  background-color: transparent;
+  color: #fff;
+  filter: brightness(100%);
+}
+
+.tab .icon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
   
+}
+
+.tab:hover .icon img {
+  filter: brightness(100%);
+}
+
+.tab .icon-frame {
+  width: 40px;
+  height: 40px;
+  background-color: #444;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: filter 0.3s ease;
+}
+
+.tab .icon-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+  filter: brightness(50%);
+}
+
+.tab .tab-text {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.main-content {
+  flex: 3;
+  margin-right: 20px;
+}
+
+.posting {
+  background-color: #1e1e2e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.posting h3 {
+  margin-bottom: 15px;
+  color: #e0e0e0;
+}
+
+.banner-posting {
+  width: 1200px;
+}
+
+.banner-posting img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.post-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.post-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d1d1e9;
+}
+
+.comment-container {
+  background-color: #13141c;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-desc {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.user-badge img {
+  width: 16px;
+  height: 16px;
+  margin-left: 5px;
+}
+
+.comment-count {
+  font-size: 0.85rem;
+  color: #bbb;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  color: #bbb;
+  cursor: pointer;
+}
+
+.comment-body {
+  margin-top: 10px;
+}
+
+.comment-bubble {
+  display: flex;
+  align-items: center;
+  background-color: #192233;
+  border-radius: 20px;
+  padding: 10px 15px;
+  position: relative;
+}
+
+.bubble-decor {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.comment-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
+
+.comment-time {
+  color: #bbb;
+}
+
+.comment-reply {
+  display: flex;
+  gap: 10px;
+}
+
+.reply-button,
+.like-button {
+  background: none;
+  border: none;
+  color: #bbb;
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.reply-button:hover,
+.like-button:hover {
+  color: #fff;
+}
+
+
 /* Footer Style */
 footer {
     background-color: #1b1d2a;
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
+    position:static;
     width: 100%;
     bottom: 0;
 }
