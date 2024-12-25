@@ -8,9 +8,9 @@
         <div class="profile-header">
             <img src="bahan/honkai_banner.webp" alt="Background Image" class="header-bg">
             <div class="profile-info">
-                <img src="bahan/profile1.png" alt="User Avatar" class="avatar-detail">
+                <img src="bahan/genshin.jpeg" alt="User Avatar" class="avatar-detail">
                 <div class="user-details">
-                    <h1>Futsu Kun <span class="icons">🐱‍👤⭐</span></h1>
+                    <h1>Your Fab</h1>
                     <p>Follow My Profile for Upcoming Redeem Codes</p>
                 </div>
                 <div class="follow-button">
@@ -29,24 +29,23 @@
                 <!-- Tab Konten -->
                 <div class="content-tabs">
                     <?php include 'template/tabs_profil.php' ?>
-                    <a href="post_detail.php" style="text-decoration: none;">
-                        <div class="tab-content">
-                            <div class="post">
-                                <div class="post-header">
-                                    <img src="bahan/profile1.png" alt="User Avatar" class="post-avatar">
-                                    <div class="post-details">
-                                        <span>Futsu Kun</span>
-                                        <span>• 4 jam yang lalu</span>
-                                        <span>Genshin Impact</span>
-                                        <button class="follow-btn" id="ikuti-masuk" style="display: none;">Ikuti +</button>
-                                    </div>
+                    <div class="tab-content">
+                        <div class="post">
+                            <div class="post-header">
+                                <img src="bahan/profile1.png" alt="User Avatar" class="post-avatar">
+                                <div class="post-details">
+                                    <span>Your Fab</span>
+                                    <span>• 4 jam yang lalu</span>
+                                    <span>Genshin Impact</span>
+                                    <button class="follow-btn" id="ikuti-masuk" style="display: none;">Ikuti +</button>
                                 </div>
-                                <div class="post-body">
+                            </div>
+                            <div class="post-body">
+                                <a href="post_detail_genshin.php" style="text-decoration: none;">
                                     <div class="post-content">
-                                        <h2>Edisi Definitif Battlefield V Tersedia Sekarang</h2>
+                                        <h2>Update Patch 2.5 Terbaru Untuk Genshin Impact</h2>
                                         <div class="post-images">
-                                            <img src="bahan/action/update-bf.jpg" alt="gambar 1" class="post-image" />
-                                            <img src="bahan/action/update-bf2.jpg" alt="gambar 2" class="post-image" />
+                                            <img src="bahan/genshin/genshin_update.webp" alt="gambar 1" class="post-image" />
                                         </div>
                                         <div class="post-tags">
                                             <a href="#">#bf5</a>
@@ -59,10 +58,43 @@
                                         <span>✉ 29</span>
                                         <span>❤ 94</span>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
-                    </a>
+                    </div>
+                    <div class="tab-content">
+                        <div class="post">
+                            <div class="post-header">
+                                <img src="bahan/genshin.jpeg" alt="User Avatar" class="post-avatar">
+                                <div class="post-details">
+                                    <span>Your Fab</span>
+                                    <span>• 4 jam yang lalu</span>
+                                    <span>Genshin Impact</span>
+                                </div>
+                            </div>
+                            <div class="post-body">
+                                <a href="post_detail.php" style="text-decoration: none;">
+                                    <div class="post-content">
+                                        <h2>Edisi Definitif Call Of Duty Tersedia Sekarang</h2>
+                                        <div class="post-images">
+                                            <img src="bahan/cod/cod-update.jpg" alt="gambar 1" class="post-image" />
+                                            <img src="bahan/action/bf-content2.jpg" alt="gambar 1" class="post-image" />
+                                        </div>
+                                        <div class="post-tags">
+                                            <a href="#">#bf5</a>
+                                            <a href="#">#Battlefield</a>
+                                            <a href="#">#Fyp</a>
+                                        </div>
+                                    </div>
+                                    <div class="post-footer">
+                                        <span>👁 11 rb</span>
+                                        <span>✉ 29</span>
+                                        <span>❤ 94</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <aside class="sidebar">
@@ -72,13 +104,6 @@
                         kehadiran serta fitur game lainnya!
                     </p>
                     <button class="login-btn" id="login-masuk">Login Akun</button>
-                </div>
-
-                <div class="post-options" style="display: none;">
-                    <h3>Ayo segera posting!</h3>
-                    <button id="konten-masuk">Konten</button>
-                    <button id="gambar-masuk">Gambar</button>
-                    <button id="video-masuk">Video</button>
                 </div>
 
                 <div class="achievement-container">
@@ -105,6 +130,13 @@
                     </div>
                 </div>
 
+                <div class="post-options" style="display: none;">
+                    <h3>Ayo segera posting!</h3>
+                    <button id="konten-masuk">Konten</button>
+                    <button id="gambar-masuk">Gambar</button>
+                    <button id="video-masuk">Video</button>
+                </div>
+
                 <div class="topik-info">
                     <h3>Topik Populer</h3>
                     <div class="topik-container">
@@ -122,6 +154,7 @@
                 </div>
             </aside>
         </main>
+
     </div>
 
     <!-- Modal pop-up Form -->

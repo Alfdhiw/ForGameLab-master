@@ -71,6 +71,7 @@ const openModalLoginBtn = document.getElementById("login-masuk");
 const openModalKontenBtn = document.getElementById("konten-masuk");
 const openModalGambarBtn = document.getElementById("gambar-masuk");
 const openModalVideoBtn = document.getElementById("video-masuk");
+const openModalBannerBtn = document.getElementById("ikuti-profil");
 const modal = document.getElementById("loginModal"); 
 const closeBtn = document.querySelector(".close-btn");
 

@@ -16,7 +16,9 @@
                     <div class="post-header">
                         <img src="bahan/profile1.png" alt="Avatar" class="avatar" />
                         <div class="user-info">
-                            <h3>Futsu Kun <span class="icons">🐱‍👤⭐</span></h3>
+                            <a href="detail_profil.php" style="text-decoration: none;">
+                                <h3>Futsu Kun <span class="icons">🐱‍👤⭐</span></h3>
+                            </a>
                             <p>14/10 - Expert Gamer</p>
                         </div>
                         <button class="follow-btn" id="ikuti-masuk">Ikuti +</button>
