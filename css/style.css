@@ -409,6 +409,27 @@ header {
   font-weight: bold;
 }
 
+.kode-profil {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  background-color: #0c0f1d;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Info Kode */
+.kode-profil .info-profil p {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.reward-profil {
+  color: #ffffff;
+  font-weight: bold;
+}
+
 .kode-item .info .bonus {
   color: #6fa5f1;
 }
@@ -679,6 +700,17 @@ header {
   
   .dropdown-item i {
     margin-right: 8px;
+  }
+
+  .dropdown-content .dropdown-item a {
+    color: white;
+  }
+
+  .dropdown-content .dropdown-item a:hover {
+    border-radius: 5px;
+    background-color: #343746;
+    color: #6476e9;
+    cursor: pointer;
   }
   
   .dropdown-right {

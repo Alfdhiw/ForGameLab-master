@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <?php include 'template/header.php' ?>
 
 <body>
@@ -9,7 +12,13 @@
       <p>Komunitas game favorit Anda. Temukan panduan, diskusi, dan teman bermain!</p>
     </div>
   </section>
-
+  <!-- Alert Login -->
+  <?php
+  if (isset($_SESSION['error'])) {
+    echo "<script>alert('" . $_SESSION['error'] . "');</script>";
+    unset($_SESSION['error']);
+  }
+  ?>
   <main>
     <section class="forum">
       <article class="post">
@@ -17,7 +26,9 @@
           <div class="post-header">
             <img src="bahan/profile1.png" alt="Avatar" class="avatar" />
             <div class="user-info">
-              <h3>Futsu Kun <span class="icons">🐱‍👤⭐</span></h3>
+              <a href="detail_profil.php" style="text-decoration: none;">
+                <h3>Futsu Kun <span class="icons">🐱‍👤⭐</span></h3>
+              </a>
               <p>14/10 - Expert Gamer</p>
             </div>
             <button class="follow-btn" id="ikuti-masuk">Ikuti +</button>
@@ -116,11 +127,11 @@
       <span class="close-btn">&times;</span>
       <div class="logo">ForGameLab</div>
       <h2>Log in</h2>
-      <form action="#">
+      <form method="POST" action="modul/session_login.php">
         <label for="username" class="text-light">Username</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" style="background-color: #212226" />
+        <input type="text" id="username" name="username" placeholder="Enter your username" style="background-color: #212226; color: white;" />
         <label for="password" class="text-light">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" style="background-color: #212226" />
+        <input type="password" id="password" name="password" placeholder="Enter your password" style="background-color: #212226; color: white;" />
         <button type="submit">Login</button>
       </form>
     </div>

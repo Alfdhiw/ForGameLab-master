@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <?php include 'template/header.php' ?>
 
 <body>
@@ -99,13 +102,23 @@
         </section>
 
         <aside class="sidebar">
-            <div class="widget">
-                <p>
-                    Hanya butuh beberapa detik untuk log in dan buka bonus lapor
-                    kehadiran serta fitur game lainnya!
-                </p>
-                <button class="login-btn" id="login-masuk">Login Akun</button>
-            </div>
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) : ?>
+                <div class="widget" style="display: none;">
+                    <p>
+                        <b></b>Hanya butuh beberapa detik untuk log in dan buka bonus lapor
+                        kehadiran serta fitur game lainnya!
+                    </p>
+                    <button class="login-btn" id="login-masuks">Login Akun</button>
+                </div>
+            <?php else : ?>
+                <div class="widget">
+                    <p>
+                        <b></b>Hanya butuh beberapa detik untuk log in dan buka bonus lapor
+                        kehadiran serta fitur game lainnya!
+                    </p>
+                    <button class="login-btn" id="login-masuk">Login Akun</button>
+                </div>
+            <?php endif; ?>
             <div class="topik-info">
                 <h3>Informasi Penulis</h3>
                 <div class="kode-list">
@@ -150,11 +163,11 @@
             <span class="close-btn">&times;</span>
             <div class="logo">ForGameLab</div>
             <h2>Log in</h2>
-            <form action="#">
+            <form method="POST" action="modul/session_login.php">
                 <label for="username" class="text-light">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username" style="background-color: #212226" />
+                <input type="text" id="username" name="username" placeholder="Enter your username" style="background-color: #212226; color: white;" />
                 <label for="password" class="text-light">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" style="background-color: #212226" />
+                <input type="password" id="password" name="password" placeholder="Enter your password" style="background-color: #212226; color: white;" />
                 <button type="submit">Login</button>
             </form>
         </div>

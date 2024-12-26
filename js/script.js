@@ -51,6 +51,57 @@ function setTheme(isDark) {
   }
 }
 
+//Banner Slide
+// Array untuk URL gambar
+const images = [
+  '../bahan/csgo.jpg',
+  '../bahan/action_bf5.jpg',
+  '../bahan/apex.jpg'
+];
+const banner = document.querySelector('.banner');
+        let currentImage = 0;
+
+        function changeBackground() {
+            // Perbarui background image
+            banner.style.setProperty('--bg-image', `url('${images[currentImage]}')`);
+            currentImage = (currentImage + 1) % images.length; // Pindah ke gambar berikutnya
+        }
+
+        // Ubah background setiap 5 detik
+        setInterval(changeBackground, 5000);
+
+
+// Interval Kode Redeem
+let countdownTime = 3600; // 1 hour in seconds
+
+// Function to format time (hh:mm:ss)
+function formatTime(seconds) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+
+    return `
+                <span class="blue">${String(hours).padStart(2, '0')}</span> jam 
+                <span class="blue">${String(minutes).padStart(2, '0')}</span> menit 
+                <span class="blue">${String(secs).padStart(2, '0')}</span> detik
+            `;
+}
+
+// Function to update the countdown
+function updateCountdown() {
+  const countdownElement = document.getElementById('countdown');
+  countdownElement.innerHTML = formatTime(countdownTime); // Use innerHTML for styled content
+
+  if (countdownTime > 0) {
+      countdownTime--; // Decrease time by 1 second
+  } else {
+      clearInterval(timerInterval); // Stop the timer
+      countdownElement.innerHTML = '<span class="blue">Kode telah habis!</span>';
+  }
+}
+// Start the countdown
+const timerInterval = setInterval(updateCountdown, 1000);
+
 // Cek localStorage untuk preferensi sebelumnya
 const savedTheme = localStorage.getItem('theme');
 setTheme(savedTheme === 'dark');
@@ -112,57 +163,4 @@ function setActive(event) {
   
   event.currentTarget.classList.add('active');
 }
-
-
-
-//Banner Slide
-// Array untuk URL gambar
-const images = [
-  '../bahan/csgo.jpg',
-  '../bahan/action_bf5.jpg',
-  '../bahan/apex.jpg'
-];
-const banner = document.querySelector('.banner');
-        let currentImage = 0;
-
-        function changeBackground() {
-            // Perbarui background image
-            banner.style.setProperty('--bg-image', `url('${images[currentImage]}')`);
-            currentImage = (currentImage + 1) % images.length; // Pindah ke gambar berikutnya
-        }
-
-        // Ubah background setiap 5 detik
-        setInterval(changeBackground, 5000);
-
-// Interval Kode Redeem
-let countdownTime = 3600; // 1 hour in seconds
-
-// Function to format time (hh:mm:ss)
-function formatTime(seconds) {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const secs = seconds % 60;
-
-    return `
-                <span class="blue">${String(hours).padStart(2, '0')}</span> jam 
-                <span class="blue">${String(minutes).padStart(2, '0')}</span> menit 
-                <span class="blue">${String(secs).padStart(2, '0')}</span> detik
-            `;
-}
-
-// Function to update the countdown
-function updateCountdown() {
-  const countdownElement = document.getElementById('countdown');
-  countdownElement.innerHTML = formatTime(countdownTime); // Use innerHTML for styled content
-
-  if (countdownTime > 0) {
-      countdownTime--; // Decrease time by 1 second
-  } else {
-      clearInterval(timerInterval); // Stop the timer
-      countdownElement.innerHTML = '<span class="blue">Kode telah habis!</span>';
-  }
-}
-// Start the countdown
-const timerInterval = setInterval(updateCountdown, 1000);
-
 
