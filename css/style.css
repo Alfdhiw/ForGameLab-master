@@ -702,11 +702,11 @@ header {
     margin-right: 8px;
   }
 
-  .dropdown-content .dropdown-item a {
+  .dropdown-content a {
     color: white;
   }
 
-  .dropdown-content .dropdown-item a:hover {
+  .dropdown-content a:hover {
     border-radius: 5px;
     background-color: #343746;
     color: #6476e9;
@@ -726,6 +726,22 @@ header {
     cursor: pointer;
   }
 
+  #theme-user {
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+
+  #theme-keluar {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+
   #theme-masuk {
     display: flex;
     align-items: left;
@@ -736,7 +752,7 @@ header {
   /* Toggle Switch */
   .theme-switcher {
     display: flex;
-    align-items: center;
+    align-items: left;
     gap: 10px;
   }
 

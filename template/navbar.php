@@ -54,7 +54,11 @@ function isActive($page)
             <div class="notification-dropdown">
                 <div class="dropdown">
                     <div class="dropdown-icon" onmouseover="DropdownProfil()">
-                        <img src="bahan/default_avatar.png" alt="Profil Icon" id="iconprofil" style="cursor: pointer" />&ensp;<?php echo htmlspecialchars($_SESSION['username']); ?>
+                        <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) : ?>
+                            <img src="bahan/profile2.png" alt="Profil Icon" id="iconprofil" style="cursor: pointer" />&ensp;<?php echo htmlspecialchars($_SESSION['username']); ?>
+                        <?php else : ?>
+                            <img src="bahan/default_avatar.png" alt="Profil Icon" id="iconprofil" style="cursor: pointer" />&ensp;<?php echo htmlspecialchars($_SESSION['username']); ?>
+                        <?php endif; ?>
                     </div>
                     <div class="dropdown-content" id="dropdownContentProfil">
                         <div class="dropdown-item" id="theme-setting">
@@ -69,11 +73,19 @@ function isActive($page)
                                 <span class="theme-text"></span>
                             </div>
                         </div>
+                        <a href="detail_avatar.php" style="text-decoration: none;">
+                            <div class="dropdown-item" id="theme-user">
+                                <i class="fas fa-user" style="margin-top: 4px;"></i>
+                                <span>Detail Profil</span>
+                            </div>
+                        </a>
                         <hr />
-                        <div class="dropdown-item">
-                            <i class="fas fa-sign-in-alt" style="margin-top: 4px;"></i>
-                            <a href="modul/session_logout.php" style="text-decoration: none;"><span>Keluar</span></a>
-                        </div>
+                        <a href="modul/session_logout.php" style="text-decoration: none;">
+                            <div class="dropdown-item" id="theme-keluar">
+                                <i class="fas fa-sign-in-alt" style="margin-top: 4px;"></i>
+                                <span>Keluar</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
