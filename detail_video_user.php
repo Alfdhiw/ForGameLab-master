@@ -11,92 +11,26 @@ session_start();
         <div class="profile-header">
             <img src="bahan/honkai_banner.webp" alt="Background Image" class="header-bg">
             <div class="profile-info">
-                <img src="bahan/genshin.jpeg" alt="User Avatar" class="avatar-detail">
+                <img src="bahan/profile2.png" alt="User Avatar" class="avatar-detail">
                 <div class="user-details">
-                    <h1>Your Fab</h1>
+                    <h1><?php echo htmlspecialchars($_SESSION['username']); ?></h1>
                     <p>Follow My Profile for Upcoming Redeem Codes</p>
-                </div>
-                <div class="follow-button">
-                    <button class="btn-follow" id="ikuti-profil"><b>Ikuti</b></button>
                 </div>
             </div>
             <div class="profile-stats">
-                <span><i class="fa-solid fa-download"></i> 74 Postingan</span>
-                <span><i class="fa-solid fa-user-plus"></i> 10 Ikuti</span>
-                <span><i class="fa-solid fa-user-group"></i> 65 rb Pengikut</span>
-                <span><i class="fa-solid fa-heart"></i> 79 rb Suka</span>
+                <span><i class="fa-solid fa-download"></i> 1 Postingan</span>
+                <span><i class="fa-solid fa-user-plus"></i> 0 Ikuti</span>
+                <span><i class="fa-solid fa-user-group"></i> 0 Pengikut</span>
+                <span><i class="fa-solid fa-heart"></i> 1 Suka</span>
             </div>
         </div>
         <main class="action-main">
             <section class="forum">
                 <!-- Tab Konten -->
                 <div class="content-tabs">
-                    <?php include 'template/tabs_profil.php' ?>
+                    <?php include 'template/tabs_user.php' ?>
                     <div class="tab-content">
-                        <div class="post">
-                            <div class="post-header">
-                                <img src="bahan/profile1.png" alt="User Avatar" class="post-avatar">
-                                <div class="post-details">
-                                    <span>Your Fab</span>
-                                    <span>• 4 jam yang lalu</span>
-                                    <span>Genshin Impact</span>
-                                    <button class="follow-btn" id="ikuti-masuk" style="display: none;">Ikuti +</button>
-                                </div>
-                            </div>
-                            <div class="post-body">
-                                <a href="post_detail_genshin.php" style="text-decoration: none;">
-                                    <div class="post-content">
-                                        <h2>Update Patch 2.5 Terbaru Untuk Genshin Impact</h2>
-                                        <div class="post-images">
-                                            <img src="bahan/genshin/genshin_update.webp" alt="gambar 1" class="post-image" />
-                                        </div>
-                                        <div class="post-tags">
-                                            <a href="#">#bf5</a>
-                                            <a href="#">#Battlefield</a>
-                                            <a href="#">#Fyp</a>
-                                        </div>
-                                    </div>
-                                    <div class="post-footer">
-                                        <span>👁 11 rb</span>
-                                        <span>✉ 29</span>
-                                        <span>❤ 94</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-content">
-                        <div class="post">
-                            <div class="post-header">
-                                <img src="bahan/genshin.jpeg" alt="User Avatar" class="post-avatar">
-                                <div class="post-details">
-                                    <span>Your Fab</span>
-                                    <span>• 4 jam yang lalu</span>
-                                    <span>Genshin Impact</span>
-                                </div>
-                            </div>
-                            <div class="post-body">
-                                <a href="post_detail.php" style="text-decoration: none;">
-                                    <div class="post-content">
-                                        <h2>Edisi Definitif Call Of Duty Tersedia Sekarang</h2>
-                                        <div class="post-images">
-                                            <img src="bahan/cod/cod-update.jpg" alt="gambar 1" class="post-image" />
-                                            <img src="bahan/action/bf-content2.jpg" alt="gambar 1" class="post-image" />
-                                        </div>
-                                        <div class="post-tags">
-                                            <a href="#">#bf5</a>
-                                            <a href="#">#Battlefield</a>
-                                            <a href="#">#Fyp</a>
-                                        </div>
-                                    </div>
-                                    <div class="post-footer">
-                                        <span>👁 11 rb</span>
-                                        <span>✉ 29</span>
-                                        <span>❤ 94</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                        <div id="videosPostContainer"></div>
                     </div>
                 </div>
             </section>
@@ -185,4 +119,61 @@ session_start();
             </form>
         </div>
     </div>
+    <script>
+        // Load videos
+        const loadvideos = () => {
+            const videos = JSON.parse(localStorage.getItem("videos")) || [];
+            videosPostContainer.innerHTML = "";
+            videos.forEach((video, index) => {
+                const videoElement = document.createElement("div");
+                videoElement.classList.add("post");
+                videoElement.id = `video-${index}`;
+                videoElement.innerHTML = `
+      <div class="post-header">
+                <img src="bahan/profile2.png" alt="User Avatar" class="post-avatar">
+                <div class="post-details">
+                    <span><?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                    <span>Genshin Impact</span>
+                    <button class="follow-btn" id="ikuti-masuk" style="display: none;">Ikuti +</button>
+                </div>
+                <div class="comment-actions">
+                <button class="action-button" onclick="deletePost(${index})"><i class="fas fa-xmark"></i></button>
+        </div>
+            </div>
+            <div class="post-body">
+                <div class="post-content">
+                    <h2><b>${video.title}</b></h2>
+                    <div class="post-images">
+                                            <iframe width="560" height="315" src="${video.link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        </div>
+                </div>
+                <div class="post-tags">
+                                            <a href="#">#${video.hastag}</a>
+                                        </div>
+                <div class="post-footer">
+                    <span>👁 11 rb</span>
+                    <span>✉ 29</span>
+                    <span>❤ 94</span>
+                </div>
+            </div>
+        `;
+
+                videosPostContainer.appendChild(videoElement);
+            });
+        };
+
+        // Delete Video
+        window.deleteVideo = (index) => {
+            const videos = JSON.parse(localStorage.getItem("videos")) || [];
+            videos.splice(index, 1);
+            localStorage.setItem("videos", JSON.stringify(videos));
+
+            const videoElement = document.querySelector(`#video-${index}`);
+            if (videoElement) {
+                videoElement.remove();
+            }
+        };
+        // Initial load
+        loadvideos();
+    </script>
     <?php include 'template/footer.php' ?>

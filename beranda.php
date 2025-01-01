@@ -85,6 +85,10 @@ session_start();
             </div>
           </a>
         </div>
+        <!-- Id Konten -->
+        <div id="videosPostContainer"></div>
+        <div id="postsPostContainer"></div>
+        <div id="postsKontenContainer"></div>
       </article>
     </section>
 
@@ -136,4 +140,136 @@ session_start();
       </form>
     </div>
   </div>
+  <script>
+    // Load videos
+    const loadvideos = () => {
+      const videos = JSON.parse(localStorage.getItem("videos")) || [];
+      videosPostContainer.innerHTML = "";
+      videos.forEach((video, index) => {
+        const videoElement = document.createElement("div");
+        videoElement.classList.add("post-container");
+        videoElement.id = `video-${index}`;
+        videoElement.innerHTML = `
+      <div class="post-header">
+                        <img src="bahan/profile2.png" alt="Avatar" class="avatar" />
+                        <div class="user-info">
+                            <a href="detail_profil.php" style="text-decoration: none;">
+                                <h3>${video.username}</h3>
+                            </a>
+                            <p>02/10 - Platform Game</p>
+                        </div>
+                        <button class="follow-btn" id="ikuti2-masuk">Ikuti +</button>
+                    </div>
+            </div>
+            <div class="post-body">
+            <a href="post_detail.php" style="text-decoration: none;">
+                <div class="post-content">
+                    <h2><b>${video.title}</b></h2>
+                    <div class="post-images">
+                                            <iframe width="560" height="315" src="${video.link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        </div>
+                </div>
+                <div class="post-tags">
+                                            <a href="#">#${video.hastag}</a>
+                                        </div>
+                <div class="post-footer">
+                    <span>👁 11 rb</span>
+                    <span>✉ 29</span>
+                    <span>❤ 94</span>
+                </div>
+                </a>
+            </div>
+        `;
+
+        videosPostContainer.appendChild(videoElement);
+      });
+    };
+    // Initial load
+    loadvideos();
+
+    // Load Postingan
+    const loadposts = () => {
+      const posts = JSON.parse(localStorage.getItem("posts")) || [];
+      postsPostContainer.innerHTML = "";
+      posts.forEach((post, index) => {
+        const postElement = document.createElement("div");
+        postElement.classList.add("post-container");
+        postElement.id = `post-${index}`;
+        postElement.innerHTML = `
+      <div class="post-header">
+                        <img src="bahan/profile2.png" alt="Avatar" class="avatar" />
+                        <div class="user-info">
+                            <a href="detail_profil.php" style="text-decoration: none;">
+                                <h3>${post.username}</h3>
+                            </a>
+                            <p>02/10 - Platform Game</p>
+                        </div>
+                        <button class="follow-btn" id="ikuti2-masuk">Ikuti +</button>
+                    </div>
+            </div>
+            <div class="post-body">
+            <a href="post_detail.php" style="text-decoration: none;">
+                <div class="post-content">
+                    <h2><b>${post.title}</b></h2>
+                    <div class="post-images">
+                                            <img src="${post.image}" alt="gambar 1" class="post-image" style="max-width: 100%; height: auto;" />
+                                        </div>
+                </div>
+                <div class="post-tags">
+                                            <a href="#">#${post.hastag}</a>
+                                        </div>
+                <div class="post-footer">
+                    <span>👁 11 rb</span>
+                    <span>✉ 29</span>
+                    <span>❤ 94</span>
+                </div>
+                </a>
+            </div>
+        `;
+
+        postsPostContainer.appendChild(postElement);
+      });
+    };
+    // Initial load
+    loadposts();
+
+    // Load Konten
+    const loadkontens = () => {
+      const kontens = JSON.parse(localStorage.getItem("kontens")) || [];
+      postsKontenContainer.innerHTML = "";
+      kontens.forEach((kontenku, index) => {
+        const postElement = document.createElement("div");
+        postElement.classList.add("post-container");
+        postElement.id = `konten-${index}`;
+        postElement.innerHTML = `
+      <div class="post-header">
+                        <img src="bahan/profile2.png" alt="Avatar" class="avatar" />
+                        <div class="user-info">
+                            <a href="detail_profil.php" style="text-decoration: none;">
+                                <h3>${kontenku.username_konten}</h3>
+                            </a>
+                            <p>02/10 - Platform Game</p>
+                        </div>
+                        <button class="follow-btn" id="ikuti2-masuk">Ikuti +</button>
+                    </div>
+            </div>
+            <div class="post-body">
+                <div class="post-content">
+                    <h5><b>${kontenku.title_konten}</b></h5>
+                    <p>${kontenku.konten}</p>
+                </div>
+                <div class="post-footer">
+                    <span>👁 11 rb</span>
+                    <span>✉ 29</span>
+                    <span>❤ 94</span>
+                </div>
+            </div>
+        `;
+
+        postsKontenContainer.appendChild(postElement);
+      });
+    };
+    // Initial load
+    loadkontens();
+  </script>
   <?php include 'template/footer.php' ?>

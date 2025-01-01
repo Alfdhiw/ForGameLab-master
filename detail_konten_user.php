@@ -11,51 +11,26 @@ session_start();
         <div class="profile-header">
             <img src="bahan/honkai_banner.webp" alt="Background Image" class="header-bg">
             <div class="profile-info">
-                <img src="bahan/genshin.jpeg" alt="User Avatar" class="avatar-detail">
+                <img src="bahan/profile2.png" alt="User Avatar" class="avatar-detail">
                 <div class="user-details">
-                    <h1>Your Fab</h1>
+                    <h1><?php echo htmlspecialchars($_SESSION['username']); ?></h1>
                     <p>Follow My Profile for Upcoming Redeem Codes</p>
-                </div>
-                <div class="follow-button">
-                    <button class="btn-follow"><b>Ikuti</b></button>
                 </div>
             </div>
             <div class="profile-stats">
-                <span><i class="fa-solid fa-download"></i> 74 Postingan</span>
-                <span><i class="fa-solid fa-user-plus"></i> 10 Ikuti</span>
-                <span><i class="fa-solid fa-user-group"></i> 65 rb Pengikut</span>
-                <span><i class="fa-solid fa-heart"></i> 79 rb Suka</span>
+                <span><i class="fa-solid fa-download"></i> 1 Postingan</span>
+                <span><i class="fa-solid fa-user-plus"></i> 0 Ikuti</span>
+                <span><i class="fa-solid fa-user-group"></i> 0 Pengikut</span>
+                <span><i class="fa-solid fa-heart"></i> 1 Suka</span>
             </div>
         </div>
         <main class="action-main">
             <section class="forum">
                 <!-- Tab Konten -->
                 <div class="content-tabs">
-                    <?php include 'template/tabs_profil.php' ?>
+                    <?php include 'template/tabs_user.php' ?>
                     <div class="tab-content">
-                        <div class="post">
-                            <div class="post-header">
-                                <img src="bahan/genshin.jpeg" alt="User Avatar" class="post-avatar">
-                                <div class="post-details">
-                                    <span>Your Fab</span>
-                                    <span>• 4 jam yang lalu</span>
-                                    <span>Genshin Impact</span>
-                                    <button class="follow-btn" id="ikuti-masuk" style="display: none;">Ikuti +</button>
-                                </div>
-                            </div>
-                            <div class="post-body">
-                                <div class="post-content">
-                                    <h2>Kode Redeem Terbaru 2024</h2>
-                                    <p>HSRFUGUE1225 - https://hsr.hoyoverse.com/gift?code=HSRFUGUE1225</p>
-                                    <p>AS3J6MNJVCA7- https://hsr.hoyoverse.com/gift?code=AS3J6MNJVCA7</p>
-                                </div>
-                                <div class="post-footer">
-                                    <span>👁 11 rb</span>
-                                    <span>✉ 29</span>
-                                    <span>❤ 94</span>
-                                </div>
-                            </div>
-                        </div>
+                        <div id="postsKontenContainer"></div>
                     </div>
                 </div>
             </section>
@@ -144,4 +119,56 @@ session_start();
             </form>
         </div>
     </div>
+    <script>
+        // Load posts from localStorage
+        const loadkontens = () => {
+            const kontens = JSON.parse(localStorage.getItem("kontens")) || [];
+            postsKontenContainer.innerHTML = "";
+            kontens.forEach((post, index) => {
+                const postElement = document.createElement("div");
+                postElement.classList.add("post");
+                postElement.id = `konten-${index}`;
+                postElement.innerHTML = `
+      <div class="post-header">
+                <img src="bahan/profile2.png" alt="User Avatar" class="post-avatar">
+                <div class="post-details">
+                    <span><?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                    <span>Genshin Impact</span>
+                    <button class="follow-btn" id="ikuti-masuk" style="display: none;">Ikuti +</button>
+                </div>
+                <div class="comment-actions">
+                <button class="action-button" onclick="deleteKonten(${index})"><i class="fas fa-xmark"></i></button>
+        </div>
+            </div>
+            <div class="post-body">
+                <div class="post-content">
+                    <h5><b>${post.title_konten}</b></h5>
+                    <p>${post.konten}</p>
+                </div>
+                <div class="post-footer">
+                    <span>👁 11 rb</span>
+                    <span>✉ 29</span>
+                    <span>❤ 94</span>
+                </div>
+            </div>
+        `;
+
+                postsKontenContainer.appendChild(postElement);
+            });
+        };
+
+        // Delete Konten
+        window.deleteKonten = (index) => {
+            const kontens = JSON.parse(localStorage.getItem("kontens")) || [];
+            kontens.splice(index, 1);
+            localStorage.setItem("kontens", JSON.stringify(kontens));
+
+            const postElement = document.querySelector(`#konten-${index}`);
+            if (postElement) {
+                postElement.remove();
+            }
+        };
+        // Initial load
+        loadkontens();
+    </script>
     <?php include 'template/footer.php' ?>

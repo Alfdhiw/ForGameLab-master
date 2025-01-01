@@ -37,14 +37,14 @@ const themeText = document.querySelector('.theme-text');
 const currentSetting = document.querySelector('.current-setting');
 
 // Fungsi untuk mengaktifkan tema
-function setTheme(isDark) {
-  if (isDark) {
-    document.body.classList.add('dark-mode');
+function setTheme(islight) {
+  if (islight) {
+    document.body.classList.add('light-mode');
     themeText.textContent = '';
     currentSetting.textContent = '';
     themeToggle.checked = true;
   } else {
-    document.body.classList.remove('dark-mode');
+    document.body.classList.remove('light-mode');
     themeText.textContent = '';
     currentSetting.textContent = '';
     themeToggle.checked = false;

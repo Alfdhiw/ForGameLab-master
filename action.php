@@ -128,13 +128,21 @@ session_start();
                         <button class="login-btn" id="login-masuk">Login Akun</button>
                     </div>
                 <?php endif; ?>
-                <div class="post-options">
-                    <h3>Ayo segera posting!</h3>
-                    <button id="konten-masuk">Konten</button>
-                    <button id="gambar-masuk">Gambar</button>
-                    <button id="video-masuk">Video</button>
-                </div>
-
+                <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) : ?>
+                    <div class="post-options">
+                        <h3>Ayo segera posting!</h3>
+                        <a href="konten.php"><button id="konten-masuk">Konten</button></a>
+                        <a href="postingan.php"><button id="gambar-masuk">Gambar</button></a>
+                        <a href="video.php"><button id="video-masuk">Video</button></a>
+                    </div>
+                <?php else : ?>
+                    <div class="post-options">
+                        <h3>Ayo segera posting!</h3>
+                        <button id="konten-masuk">Konten</button>
+                        <button id="gambar-masuk">Gambar</button>
+                        <button id="video-masuk">Video</button>
+                    </div>
+                <?php endif; ?>
                 <div class="topik-info">
                     <h3>Topik Populer</h3>
                     <div class="topik-container">

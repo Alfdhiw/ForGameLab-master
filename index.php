@@ -7,7 +7,7 @@
             <span class="close-btn">&times;</span>
             <div class="logo">ForGameLab</div>
             <h2>Log in</h2>
-            <form action="#">
+            <form method="POST" action="modul/session_login.php">
                 <label for="username" class="text-light">Username</label>
                 <input type="text" id="username" name="username" placeholder="Enter your username" style="background-color: #212226" />
                 <label for="password" class="text-light">Password</label>

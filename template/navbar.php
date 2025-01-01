@@ -18,7 +18,7 @@ function isActive($page)
                 <a class="menu-link <?php echo isActive('beranda.php'); ?>" href="beranda.php" aria-current="page" onclick="setActive(event)"><b>Beranda</b></a>
             <?php endif; ?>
             <a class="menu-link dropdown dropdown-toggle <?php echo isActive('action.php'); ?> <?php echo isActive('cod.php'); ?> <?php echo isActive('apex.php'); ?> <?php echo isActive('csgo.php'); ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" onclick="setActive(event)"><b>Kelompok</b></a>
-            <ul class="dropdown-menu" style="margin-left: 380px; background-color: #1b1d2a; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);">
+            <ul class="dropdown-menu" style="margin-left: 380px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);">
                 <li><a class="dropdown-item" href="action.php"><i class="fa-solid fa-gun" onclick="setActive(event)"></i>
                         Shooter</a>
                 </li>
@@ -73,7 +73,7 @@ function isActive($page)
                                 <span class="theme-text"></span>
                             </div>
                         </div>
-                        <a href="detail_avatar.php" style="text-decoration: none;">
+                        <a href="detail_user.php" style="text-decoration: none;">
                             <div class="dropdown-item" id="theme-user">
                                 <i class="fas fa-user" style="margin-top: 4px;"></i>
                                 <span>Detail Profil</span>
