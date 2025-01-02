@@ -50,9 +50,9 @@ session_start();
                                     <p>AS3J6MNJVCA7- https://hsr.hoyoverse.com/gift?code=AS3J6MNJVCA7</p>
                                 </div>
                                 <div class="post-footer">
-                                    <span>👁 11 rb</span>
-                                    <span>✉ 29</span>
-                                    <span>❤ 94</span>
+                                    <span>👀 (2)</span>
+                                    <button class="like-button">📧 (<span id="comment-count">0</span>)</button>
+                                    <button class="like-button" onclick="incrementLike()">❤️ (<span id="">0</span>)</button>
                                 </div>
                             </div>
                         </div>

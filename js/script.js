@@ -113,54 +113,111 @@ themeToggle.addEventListener('change', () => {
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 
-// Membuka Form Login
-const openModalBtn = document.getElementById("theme-masuk");
-const openModalBellBtn = document.getElementById("themebell-masuk");
-const openModalIkutiBtn = document.getElementById("ikuti-masuk");
-const openModalIkuti2Btn = document.getElementById("ikuti2-masuk");
-const openModalLoginBtn = document.getElementById("login-masuk");
-const openModalKontenBtn = document.getElementById("konten-masuk");
-const openModalGambarBtn = document.getElementById("gambar-masuk");
-const openModalVideoBtn = document.getElementById("video-masuk");
-const openModalBannerBtn = document.getElementById("ikuti-profil");
-const modal = document.getElementById("loginModal"); 
-const closeBtn = document.querySelector(".close-btn");
 
-const loginModal = [
-  openModalBtn, 
-  openModalBellBtn, 
-  openModalIkutiBtn, 
-  openModalLoginBtn,
-  openModalKontenBtn,
-  openModalGambarBtn,
-  openModalVideoBtn
-];
 
-// Event listener untuk membuka modal saat tombol "Masuk" ditekan
-loginModal.forEach(button => {
-  button.addEventListener("click", () => {
-    modal.style.display = "block";
-  });
-});
+// Fungsi Menghitung Like
+const likeKey = 'postLikes';
 
-// Event listener untuk menutup modal saat tombol "X" diklik
-closeBtn.addEventListener("click", function () {
-  modal.style.display = "none";
-});
-
-// Event listener untuk menutup modal saat area di luar modal diklik
-window.addEventListener("click", function (event) {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-});
-// Event untuk Mengubah class active pada navbar
-function setActive(event) {
-  // Hapus class 'active' dari semua elemen dengan class 'menu-link' atau 'dropdown-item'
-  document.querySelectorAll('.menu-link, .dropdown-item').forEach(item => {
-    item.classList.remove('active');
-  });
-  
-  event.currentTarget.classList.add('active');
+function getLikes() {
+  const likes = localStorage.getItem(likeKey);
+  return likes ? parseInt(likes, 10) : 0;
 }
 
+function saveLikes(likes) {
+  localStorage.setItem(likeKey, likes);
+}
+
+function incrementLike() {
+  let currentLikes = getLikes();
+  currentLikes += 1;
+  saveLikes(currentLikes);
+  updateLikeCount(currentLikes);
+}
+
+function updateLikeCount(likes) {
+  document.getElementById('like-count').textContent = likes;
+  document.getElementById('like-count2').textContent = likes;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const initialLikes = getLikes();
+  updateLikeCount(initialLikes);
+});
+
+// Fungsi Menghitung Komentar
+const commentKey = 'komens';
+
+function getCommentCount() {
+  const comments = localStorage.getItem(commentKey);
+  if (!comments) {
+    return 0;
+  }
+  const commentArray = JSON.parse(comments);
+  return commentArray.length; 
+}
+
+function updateCommentCount() {
+  const count = getCommentCount();
+  document.getElementById('comment-count').textContent = count;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateCommentCount();
+});
+
+// Fungsi Following
+const followKey = 'follow_status';
+
+function saveFollowStatus(isFollowing) {
+  const expireTime = Date.now() + 3600 * 1000;
+  const followData = {
+    isFollowing: isFollowing,
+    expireAt: expireTime,
+  };
+  localStorage.setItem(followKey, JSON.stringify(followData));
+}
+
+function getFollowStatus() {
+  const followData = localStorage.getItem(followKey);
+  if (!followData) {
+    return { isFollowing: false, expired: true };
+  }
+
+  const { isFollowing, expireAt } = JSON.parse(followData);
+  const expired = Date.now() > expireAt;
+  return { isFollowing, expired };
+}
+
+function updateButton() {
+  const button = document.getElementById('update-masuk');
+  const { isFollowing, expired } = getFollowStatus();
+
+  if (expired) {
+    button.textContent = 'Ikuti +';
+    button.classList.remove('following');
+    saveFollowStatus(false);
+  } else if (isFollowing) {
+    button.textContent = 'Sudah Diikuti';
+    button.classList.add('following');
+  } else {
+    button.textContent = 'Ikuti +';
+    button.classList.remove('following');
+  }
+}
+
+function handleFollowButtonClick() {
+  const button = document.getElementById('update-masuk');
+  const { isFollowing } = getFollowStatus();
+
+  if (isFollowing) {
+    saveFollowStatus(false);
+  } else {
+    saveFollowStatus(true);
+  }
+
+  updateButton();
+}
+document.getElementById('update-masuk').addEventListener('click', handleFollowButtonClick);
+document.addEventListener('DOMContentLoaded', () => {
+  updateButton();
+});

@@ -35,7 +35,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                             </a>
                             <p>14/10 - Expert Gamer</p>
                         </div>
-                        <button class="follow-btn" id="ikuti-masuk">Ikuti +</button>
+                        <button class="follow-btn" id="update-masuk">Ikuti +</button>
                     </div>
                     <a href="post_detail.php" style="text-decoration: none;">
                         <div class="post-content">
@@ -51,9 +51,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                             </div>
                         </div>
                         <div class="post-footer">
-                            <span>👁 11 rb</span>
-                            <span>✉ 29</span>
-                            <span>❤ 94</span>
+                            <button class="like-button">👀 (<span id="view-count">0</span>)</button>
+                            <a href="post_detail.php" style="text-decoration: none;"><button class="like-button">📧 (<span id="comment-count">0</span>)</button></a>
+                            <button class="like-button" onclick="incrementLike()">❤️ (<span id="like-count">0</span>)</button>
                         </div>
                     </a>
                 </div>
@@ -85,9 +85,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                         </div>
 
                         <div class="post-footer">
-                            <span>👁 2 rb</span>
-                            <span>✉ 350</span>
-                            <span>❤ 1 rb</span>
+                            <span>👀 (2)</span>
+                            <button class="like-button">📧 (<span id="comment-count">0</span>)</button>
+                            <button class="like-button" onclick="incrementLike()">❤️ (<span id="like-count2">0</span>)</button>
                         </div>
                     </a>
                 </div>
@@ -189,9 +189,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                             <a href="#">#${video.hastag}</a>
                                         </div>
                 <div class="post-footer">
-                    <span>👁 11 rb</span>
-                    <span>✉ 29</span>
-                    <span>❤ 94</span>
+                    <span>👀 (2)</span>
+                    <button class="like-button">📧 (<span id="comment-count">0</span>)</button>
+                    <button class="like-button" onclick="incrementLike()">❤️ (<span id="">0</span>)</button>
                 </div>
                 </a>
             </div>
@@ -235,9 +235,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                                             <a href="#">#${post.hastag}</a>
                                         </div>
                 <div class="post-footer">
-                    <span>👁 11 rb</span>
-                    <span>✉ 29</span>
-                    <span>❤ 94</span>
+                    <span>👀 (2)</span>
+                    <button class="like-button">📧 (<span id="comment-count">0</span>)</button>
+                    <button class="like-button" onclick="incrementLike()">❤️ (<span id="">0</span>)</button>
                 </div>
                 </a>
             </div>
@@ -275,9 +275,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <p>${kontenku.konten}</p>
                 </div>
                 <div class="post-footer">
-                    <span>👁 11 rb</span>
-                    <span>✉ 29</span>
-                    <span>❤ 94</span>
+                    <span>👀 (2)</span>
+                    <button class="like-button">📧 (<span id="comment-count">0</span>)</button>
+                    <button class="like-button" onclick="incrementLike()">❤️ (<span id="">0</span>)</button>
                 </div>
             </div>
         `;
@@ -287,5 +287,20 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         };
         // Initial load
         loadkontens();
+
+        // Fungsi Lihat Postingan
+        const viewKey = 'post_views';
+
+        function getViewCount() {
+            const views = localStorage.getItem(viewKey);
+            return views ? parseInt(views, 10) : 0;
+        }
+
+        function displayViewCount() {
+            const viewCount = getViewCount();
+            document.getElementById('view-count').textContent = viewCount;
+        }
+
+        document.addEventListener('DOMContentLoaded', displayViewCount);
     </script>
     <?php include 'template/footer.php' ?>

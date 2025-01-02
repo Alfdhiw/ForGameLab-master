@@ -361,7 +361,14 @@ header {
     text-align: center;
   }
   
-  .post-options, .topik-info {
+  .post-options {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #1b1d2a;
+    border-radius: 8px;
+  }
+
+  .topik-info {
     margin-bottom: 20px;
     padding: 15px;
     background-color: #1b1d2a;
@@ -533,6 +540,10 @@ header {
     color: #fff;
 }
 
+.post-content p {
+  color: #fff;
+}
+
 .post-images {
     display: flex;
     gap: 10px;
@@ -603,12 +614,28 @@ header {
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
+    transition: background-color 0.3s;
 }
 
 .follow-btn:hover {
     background-color: #6476e9;
     color: #fff;
     cursor: pointer;
+}
+
+.following {
+  background-color: #28a745;
+  color: white;
+}
+
+.following:hover {
+  background-color: #46c163;
+  color: white;
+}
+
+.follow-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 /* Login Button */
 .login-btn {
@@ -898,6 +925,10 @@ body.light-mode .post-content h2 {
   color: #000000;
 }
 
+body.light-mode .post-content p {
+  color: #000000;
+}
+
 body.light-mode .widget {
   background-color: #c1caf5;
   color: #000000;
@@ -908,12 +939,89 @@ body.light-mode .widget p {
   color: #000000;
 }
 
-body.light-mode .post-options, .topik-info, .topik-container {
+body.light-mode .post-options {
   background-color: #c1caf5;
 }
 
-body.light-mode .post-options h3, .topik-info h3, .topik-container p, .post-body p,  .post-body b {
+body.light-mode .topik-container {
+  background-color: #c1caf5;
+}
+
+
+body.light-mode .topik-info {
+  background-color: #c1caf5;
+}
+
+body.light-mode .post-options h3, .info.kode p {
   color: #010101;
+}
+
+body.light-mode .post-body b {
+  color: #000000;
+}
+
+body.light-mode .post-body p {
+  color: #000000;
+}
+
+body.light-mode .topik-info h3 {
+  color: #000000;
+}
+
+body.light-mode .topik-container p{
+  color: #000000;
+}
+
+body.light-mode .body-action{
+  background-image: 
+  linear-gradient(to top, rgb(255, 255, 255) 20%, rgba(255, 255, 255, 0.464) 100%),
+  url('../bahan/action_bf5.jpg');
+}
+
+body.light-mode .body-cod{
+  background-image: 
+  linear-gradient(to top, rgb(255, 255, 255) 20%, rgba(255, 255, 255, 0.464) 100%),
+  url('../bahan/cod.jpg');
+}
+
+body.light-mode .body-apex{
+  background-image: 
+  linear-gradient(to top, rgb(255, 255, 255) 20%, rgba(255, 255, 255, 0.464) 100%),
+  url('../bahan/apex.jpg'); 
+}
+
+body.light-mode .body-csgo{
+  background-image: 
+  linear-gradient(to top, rgb(255, 255, 255) 20%, rgba(255, 255, 255, 0.464) 100%),
+  url('../bahan/csgo.jpg');
+}
+
+body.light-mode .body-genshin{
+  background-image: 
+  linear-gradient(to top, rgb(255, 255, 255) 20%, rgba(255, 255, 255, 0.464) 100%),
+  url('../bahan/genshin_banner.webp'); /* Ganti URL dengan gambar Anda */
+}
+
+body.light-mode .body-star{
+  background-image: 
+  linear-gradient(to top, rgb(255, 255, 255) 20%, rgba(255, 255, 255, 0.464) 100%),
+  url('../bahan/star_banner.webp'); /* Ganti URL dengan gambar Anda */
+}
+
+body.light-mode .body-zenless{
+  background-image: 
+  linear-gradient(to top, rgb(255, 255, 255) 20%, rgba(255, 255, 255, 0.464) 100%),
+  url('../bahan/zenless_banner.webp'); /* Ganti URL dengan gambar Anda */
+}
+
+body.light-mode .body-honkai{
+  background-image: 
+  linear-gradient(to top, rgb(255, 255, 255) 20%, rgba(255, 255, 255, 0.464) 100%),
+  url('../bahan/honkai_banner.webp'); /* Ganti URL dengan gambar Anda */
+}
+
+body.light-mode .kode-item {
+  background-color: #a0a8d3;
 }
 
 

@@ -49,9 +49,9 @@ session_start();
                         </div>
                     </div>
                     <div class="post-footer">
-                        <span>👁 11 rb</span>
-                        <span>✉ 29</span>
-                        <span>❤ 94</span>
+                        <span>👀 (2)</span>
+                        <button class="like-button">📧 (<span id="comment-count">0</span>)</button>
+                        <button class="like-button" onclick="incrementLike()">❤️ (<span id="">0</span>)</button>
                     </div>
                     <div class="post-content" style="margin-top: 30px;">
                         <h1 class="post-title">Preview Tampilan Echo Baru "Envisaged Echoes" Versi 5.3</h1>

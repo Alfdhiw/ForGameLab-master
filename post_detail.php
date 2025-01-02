@@ -52,9 +52,9 @@ session_start();
                         </div>
                     </div>
                     <div class="post-footer">
-                        <span>👁 11 rb</span>
-                        <span>✉ 29</span>
-                        <span>❤ 94</span>
+                        <button class="like-button">👀 (<span id="view-count">0</span>)</button>
+                        <button class="like-button">📧 (<span id="comment-count">0</span>)</button>
+                        <button class="like-button" onclick="incrementLike()">❤️ (<span id="like-count">0</span>)</button>
                     </div>
                     <div class="post-content" style="margin-top: 30px;">
                         <h1 class="post-title">Judul Postingan</h1>
@@ -64,10 +64,12 @@ session_start();
                         </p>
                     </div>
                     <div class="post-content" style="margin-top: 30px;">
-                        <form>
+                        <form id="komenForm">
                             <div class="mb-3">
-                                <textarea class="form-control" id="komentar" rows="3" placeholder="Cepat tulis komentar kalian~ " style="background-color: transparent; border: 1px solid rgb(53, 53, 53); color: white;"></textarea>
+                                <textarea class="form-control" id="komen" rows="3" placeholder="Cepat tulis komentar kalian~ " style="background-color: transparent; border: 1px solid rgb(53, 53, 53); color: white;"></textarea>
                             </div>
+                            <input type="text" id="username_komen" value="<?php echo htmlspecialchars($_SESSION['username']); ?>" style="display:none">
+                            <input type="time" id="date_komen" style="display: none;">
                             <button type="submit" class="btn btn-primary">Kirim</button>
                         </form>
                     </div>
@@ -79,10 +81,6 @@ session_start();
                                 <img class="user-avatar" src="bahan/profile2.png" alt="User Avatar">
                                 <div class="user-desc">
                                     <span class="user-name">Daemonchai</span>
-                                    <span class="comment-count">Komentar 1</span>
-                                </div>
-                                <div class="comment-actions">
-                                    <button class="action-button"><i class="fas fa-ellipsis-h"></i></button>
                                 </div>
                             </div>
                             <div class="comment-body">
@@ -93,13 +91,13 @@ session_start();
                                 </div>
                             </div>
                             <div class="comment-footer">
-                                <span class="comment-time">35 menit yang lalu</span>
+                                <span class="comment-time">10:15</span>
                                 <div class="comment-reply">
-                                    <button class="reply-button"><i class="fas fa-reply"></i> Balas</button>
                                     <button class="like-button"><i class="fas fa-thumbs-up"></i> 0</button>
                                 </div>
                             </div>
                         </div>
+                        <div id="postsKomenContainer"></div>
                     </div>
                 </div>
             </article>
@@ -176,4 +174,112 @@ session_start();
             </form>
         </div>
     </div>
+    <script>
+        // Value Time
+        const inputTime = document.getElementById('date_komen');
+
+        function getCurrentTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+
+            return `${hours}:${minutes}`;
+        }
+
+        // Update waktu setiap detik
+        function updateTime() {
+            const inputTime = document.getElementById('date_komen');
+            inputTime.value = getCurrentTime();
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        inputTime.value = updateTime();
+
+        // Form Komentar
+        const komenForm = document.getElementById("komenForm");
+        const postsKomen = document.getElementById("postsKomen");
+
+        // Load Komentar
+        const loadkomens = () => {
+            const komens = JSON.parse(localStorage.getItem("komens")) || [];
+            postsKomenContainer.innerHTML = "";
+            komens.forEach((post, index) => {
+                const postElement = document.createElement("div");
+                postElement.classList.add("comment-container");
+                postElement.id = `komen-${index}`;
+                postElement.innerHTML = `
+      <div class="comment-header">
+                                <img class="user-avatar" src="bahan/profile2.png" alt="User Avatar">
+                                <div class="user-desc">
+                                    <span class="user-name">${post.username_komen}</span>
+                                </div>
+                            </div>
+                            <div class="comment-body">
+                                <div class="comment-content">
+                                    <div class="comment-bubble">
+                                        <p>${post.komen}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-footer">
+                                <span class="comment-time">${post.date}</span>
+                                <div class="comment-reply">
+                                    <button class="like-button"><i class="fas fa-thumbs-up"></i> 0</button>
+                                </div>
+                            </div>
+        `;
+
+                postsKomenContainer.appendChild(postElement);
+            });
+        };
+
+        // Save new post
+        komenForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const username_komenInput = document.getElementById("username_komen");
+            const komenInput = document.getElementById("komen");
+            const date_komenInput = inputTime;
+            // Ambil Data
+            const newPost = {
+                username_komen: username_komenInput.value,
+                komen: komenInput.value,
+                date: date_komenInput.value,
+            };
+            const komens = JSON.parse(localStorage.getItem("komens")) || [];
+            komens.push(newPost);
+            localStorage.setItem("komens", JSON.stringify(komens));
+            alert("Komentar berhasil disimpan!");
+            loadkomens();
+            komenForm.reset();
+        });
+
+        // Initial load
+        loadkomens();
+
+        // Fungsi Lihat Postingan
+        const viewKey = 'post_views';
+
+        function getViewCount() {
+            const views = localStorage.getItem(viewKey);
+            return views ? parseInt(views, 10) : 0;
+        }
+
+        function incrementViewCount() {
+            let currentViews = getViewCount();
+            currentViews++;
+            localStorage.setItem(viewKey, currentViews);
+            return currentViews;
+        }
+
+        function updateViewCounter() {
+            const newViewCount = incrementViewCount();
+            document.getElementById('view-count').textContent = newViewCount;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateViewCounter();
+        });
+    </script>
     <?php include 'template/footer.php' ?>

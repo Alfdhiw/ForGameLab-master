@@ -30,7 +30,7 @@ function isActive($page)
     </div>
 
     <div class="navbar-center">
-        <div class="search-bar">
+        <div class="search-bar" style="display: none;">
             <input type="text" placeholder="Search" />
             <button type="submit">🔍</button>
         </div>
