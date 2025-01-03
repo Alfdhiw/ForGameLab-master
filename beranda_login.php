@@ -31,11 +31,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                         <img src="bahan/profile1.png" alt="Avatar" class="avatar" />
                         <div class="user-info">
                             <a href="detail_profil.php" style="text-decoration: none;">
-                                <h3>Futsu Kun <span class="icons">🐱‍👤⭐</span></h3>
+                                <h3>Futsu Kun</h3>
                             </a>
                             <p>14/10 - Expert Gamer</p>
                         </div>
-                        <button class="follow-btn" id="update-masuk">Ikuti +</button>
+                        <button class="follow-btn" id="update-masuk">Ikuti</button>
                     </div>
                     <a href="post_detail.php" style="text-decoration: none;">
                         <div class="post-content">
@@ -62,11 +62,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                         <img src="bahan/profile1.png" alt="Avatar" class="avatar" />
                         <div class="user-info">
                             <a href="detail_profil.php" style="text-decoration: none;">
-                                <h3>Futsu Kun <span class="icons">🐱‍👤⭐</span></h3>
+                                <h3>Futsu Kun</h3>
                             </a>
                             <p>02/10 - Platform Game</p>
                         </div>
-                        <button class="follow-btn" id="ikuti2-masuk">Ikuti +</button>
+                        <button class="follow-btn" id="ikuti2-masuk">Ikuti</button>
                     </div>
                     <a href="post_detail.php" style="text-decoration: none;">
                         <div class="post-content">
@@ -174,7 +174,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                             </a>
                             <p>02/10 - Platform Game</p>
                         </div>
-                        <button class="follow-btn" id="ikuti2-masuk">Ikuti +</button>
+                        <button class="follow-btn" id="ikuti2-masuk">Ikuti</button>
                     </div>
             </div>
             <div class="post-body">
@@ -220,7 +220,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                             </a>
                             <p>02/10 - Platform Game</p>
                         </div>
-                        <button class="follow-btn" id="ikuti2-masuk">Ikuti +</button>
+                        <button class="follow-btn" id="ikuti2-masuk">Ikuti</button>
                     </div>
             </div>
             <div class="post-body">
@@ -266,7 +266,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                             </a>
                             <p>02/10 - Platform Game</p>
                         </div>
-                        <button class="follow-btn" id="ikuti2-masuk">Ikuti +</button>
+                        <button class="follow-btn" id="ikuti2-masuk">Ikuti</button>
                     </div>
             </div>
             <div class="post-body">

@@ -1,3 +1,5 @@
+
+
 // fungsi dropdown bell notifikasi
 function toggleDropdownBell() {
     const dropdown = document.getElementById('dropdownContentNotif');
@@ -193,14 +195,14 @@ function updateButton() {
   const { isFollowing, expired } = getFollowStatus();
 
   if (expired) {
-    button.textContent = 'Ikuti +';
+    button.textContent = 'Ikuti';
     button.classList.remove('following');
     saveFollowStatus(false);
   } else if (isFollowing) {
     button.textContent = 'Sudah Diikuti';
     button.classList.add('following');
   } else {
-    button.textContent = 'Ikuti +';
+    button.textContent = 'Ikuti';
     button.classList.remove('following');
   }
 }

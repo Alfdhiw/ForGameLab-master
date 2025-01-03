@@ -7,8 +7,6 @@ function isActive($page)
 ?>
 
 <nav class="navbar">
-    <span class="logo-mobile">ForGameLab</span>
-    <span class="hamburger">&#9776;</span>
     <div class="navbar-left">
         <div class="logo">ForGameLab</div>
         <div class="menu">

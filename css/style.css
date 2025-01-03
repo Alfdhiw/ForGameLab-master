@@ -186,6 +186,8 @@ header {
     display: none;
 }
 
+
+
 /* Search Bar */
 
 .search-bar {
@@ -1505,22 +1507,105 @@ footer {
     bottom: 0;
 }
   
-  /* Responsiveness */
-  @media screen and (max-width: 412px) {
+  /* Responsive */
+  @media screen and (max-width: 414px) {
     main {
       flex-direction: column;
     }
   
     .forum, .post {
       width: 95%;
+      margin-left: 8px;
+    }
+
+    .avatar-detail {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #1b1d2b;
+      margin-right: 20px;
+    }
+
+    .dropdown-menu {
+      z-index: 1000;
     }
 
     .logo {
-        font-size: 16px;
+        font-size: 20px;
         color: #4263eb;
         font-weight: bold;
         margin-right: 10px;
     }
+
+    .profile-stats {
+      padding: 20px 0;
+      margin-left: 70px;
+    }
+
+    .profile-stats span {
+      margin-top: 40px;
+    }
+
+    .widget {
+      width: 300px;
+    }
+
+    .post-options {
+      width: 300px;
+    }
+
+    .topik-info {
+      width: 300px;
+    }
+
+    .navbar-left, .navbar-center, .navbar-right {
+      display: block;
+    }
+
+    .tabs {
+      padding: 10px 0;
+      margin-bottom: 200px;
+      gap: 5px;
+      z-index: 1;
+    }
+
+    .tab-text {
+      display: none;
+    }
+
+    .navbar-left {
+      width: 200px;
+    }
+
+    .navbar-left .logo {
+        font-size: 16px;
+        margin-left: 120px;
+        margin-bottom: 10px;
+    }
+
+    .navbar-left .menu .menu-link {
+      font-size: 14px;
+  }
+
+  .navbar-right {
+    width: 30px;
+    display: flex;
+    margin-top: 20px;
+    margin-right: 60px;
+  }
+
+  .modal-konten button {
+    padding: 8px 80px;
+    margin-left: 20px;
+}
+
+.modal-konten .logo {
+  margin: 0px 0px 0px 50px
+}
+
+.modal-konten  h2 {
+  margin: 0px 0px 0px 80px
+}
 
     .sidebar {
         width: 95%;
@@ -1528,25 +1613,34 @@ footer {
         margin-bottom: 100px;
         padding: 10px;
       }
-    .navbar-left, .navbar-center, .navbar-right {
-        display: none;
+
+    .banner {
+        height: 50vh;
+        background-image: var(--bg-image);
+        background-size: cover; 
+        background-position: center; 
+        background-attachment: fixed; 
+        transition: background-image 1s ease; 
+        z-index: -1;
     }
 
-    .navbar .hamburger {
-        display: block;
+    .banner-overlay h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
-
-    .navbar .logo-mobile {
-        display: block;
-        font-size: 20px;
-        color: #4263eb;
-        font-weight: bold;
-        margin-right: 10px;
+    
+    .banner-overlay p {
+      font-size: 1rem;
+      line-height: 1;
     }
 
     .post-container {
         width: 95%;
         padding: 10px;
+    }
+
+    .post-content h2{
+      font-size: 14px;
     }
 
     .post-images {
@@ -1557,9 +1651,9 @@ footer {
         max-width: 90%;
     }
 
-    .follow-btn {
+    .post-header button {
         padding: 8px 20px;
-        border-radius: 20px;
+        border-radius: 15px;
         font-size: 12px;
         font-weight: bold;
     }
@@ -1567,6 +1661,21 @@ footer {
     .user-info {
         width: 100%;
     }
+
+    .user-info h3 {
+      font-size: 15px;
+    }
+
+    .dropdown-icon img{
+      width: 30px;
+    }
+
+    .modal-overlay {
+      top: 200px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+  }
   }
 
   @media screen and (max-width: 540px) {
@@ -1591,21 +1700,6 @@ footer {
         margin-bottom: 100px;
         padding: 10px;
       }
-    .navbar-left, .navbar-center, .navbar-right {
-        display: none;
-    }
-
-    .navbar .hamburger {
-        display: block;
-    }
-
-    .navbar .logo-mobile {
-        display: block;
-        font-size: 20px;
-        color: #4263eb;
-        font-weight: bold;
-        margin-right: 10px;
-    }
 
     .post-container {
         width: 95%;
@@ -1637,22 +1731,6 @@ footer {
     .post-container {
         width: 95%;
         padding: 10px;
-    }
-
-    .navbar-left, .navbar-center, .navbar-right {
-        display: none;
-    }
-
-    .navbar .hamburger {
-        display: block;
-    }
-
-    .navbar .logo-mobile {
-        display: block;
-        font-size: 20px;
-        color: #4263eb;
-        font-weight: bold;
-        margin-right: 10px;
     }
 
     .topik-container {

@@ -27,11 +27,11 @@ session_start();
             <img src="bahan/profile1.png" alt="Avatar" class="avatar" />
             <div class="user-info">
               <a href="detail_profil.php" style="text-decoration: none;">
-                <h3>Futsu Kun <span class="icons">🐱‍👤⭐</span></h3>
+                <h3>Futsu Kun</h3>
               </a>
               <p>14/10 - Expert Gamer</p>
             </div>
-            <button class="follow-btn" id="ikuti-masuk">Ikuti +</button>
+            <button class="follow-btn" id="ikuti-masuk">Ikuti</button>
           </div>
           <a href="post_detail.php" style="text-decoration: none;">
             <div class="post-content">
@@ -57,10 +57,10 @@ session_start();
           <div class="post-header">
             <img src="bahan/profile1.png" alt="Avatar" class="avatar" />
             <div class="user-info">
-              <h3>Zenless Zone Zero <span class="icons">🤖⭐</span></h3>
+              <h3>Zenless Zone Zero</h3>
               <p>02/10 - Platform Game</p>
             </div>
-            <button class="follow-btn" id="ikuti2-masuk">Ikuti +</button>
+            <button class="follow-btn" id="ikuti2-masuk">Ikuti</button>
           </div>
           <a href="post_detail.php" style="text-decoration: none;">
             <div class="post-content">

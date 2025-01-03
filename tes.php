@@ -15,9 +15,7 @@
             <textarea id="caption" placeholder="Tulis caption di sini..." required></textarea>
             <button type="submit">Upload</button>
         </form>
-
         <hr>
-
         <h2>Daftar Postingan</h2>
         <div id="postsContainer"></div>
     </div>
