@@ -39,7 +39,7 @@ session_start();
                             <div class="post-footer">
                                 <span>👀 (2)</span>
                                 <button class="like-button">📧 (<span id="comment-count">0</span>)</button>
-                                <button class="like-button" onclick="incrementLike()">❤️ (<span id="">0</span>)</button>
+                                <button class="like-button" onclick="incrementLike()">❤️ (<span id="like-login">0</span>)</button>
                             </div>
                     </div>
                     </a>
